@@ -1,0 +1,7 @@
+{
+  "slice": 2,
+  "extends": 1,
+  "claims": ["pending approval", "request correlation", "approve and deny resume", "policy recheck"],
+  "durabilityRequiredForClaim": true,
+  "secretsIncluded": false
+}

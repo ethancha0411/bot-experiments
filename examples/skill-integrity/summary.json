@@ -1,0 +1,5 @@
+{
+  "proof": "skill body is approval- and digest-bound",
+  "cases": ["withheld", "loaded", "digest_mismatch"],
+  "network": false
+}

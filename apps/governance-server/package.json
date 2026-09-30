@@ -1,0 +1,21 @@
+{
+  "name": "governance-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "tsx --test test/*.test.ts"
+  },
+  "dependencies": {
+    "@bot-experiments/agent-plugin": "workspace:*",
+    "@bot-experiments/ledger": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.0",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3"
+  }
+}

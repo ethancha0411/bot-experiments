@@ -1,0 +1,7 @@
+{
+  "slice": 1,
+  "identity": "agentPlugin stand-in",
+  "claims": ["trusted binding", "fail-closed grants", "decision ledger"],
+  "dispatchOnDeny": false,
+  "secretsIncluded": false
+}

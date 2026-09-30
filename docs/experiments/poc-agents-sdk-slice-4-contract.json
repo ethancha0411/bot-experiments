@@ -1,0 +1,9 @@
+{
+  "slice": 4,
+  "extends": 3,
+  "claims": ["combined workflow", "restart recovery", "effect reconciliation"],
+  "recommendation": "watch",
+  "nativeAgentPluginInstall": "unproven",
+  "skills": "untested in hosted slice",
+  "secretsIncluded": false
+}

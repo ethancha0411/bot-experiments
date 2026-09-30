@@ -1,0 +1,5 @@
+{
+  "proof": "four fail-closed decisions",
+  "cases": ["missing_agent_plugin", "missing_grant", "grant_disabled", "approval_required"],
+  "network": false
+}

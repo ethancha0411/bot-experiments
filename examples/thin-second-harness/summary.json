@@ -1,0 +1,5 @@
+{
+  "proof": "a second harness can pause, decide, and resume by request ID",
+  "outcomes": ["approve", "deny"],
+  "network": false
+}

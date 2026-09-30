@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>agentPlugin registry · bot-experiments</title>
+  <style>
+    :root { color-scheme:light; font:16px/1.5 ui-sans-serif,system-ui,sans-serif; background:#f3f5f0; color:#17221c; }
+    body { max-width:960px; margin:0 auto; padding:3rem 1.25rem; }
+    h1 { font-size:clamp(2rem,5vw,3.4rem); letter-spacing:-.045em; margin:.2rem 0; }
+    .eyebrow { color:#267451; font-size:.75rem; font-weight:800; text-transform:uppercase; letter-spacing:.15em; }
+    .plugin { background:#fff; border:1px solid #d6ddd5; border-radius:16px; padding:1.4rem; margin:1.4rem 0; box-shadow:0 12px 35px #30483812; }
+    .badge { font:13px ui-monospace,monospace; color:#476052; }
+    table { border-collapse:collapse; width:100%; margin-top:1rem; } th,td { text-align:left; padding:.65rem; border-top:1px solid #e2e7e1; }
+    th { color:#66766c; font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; }
+    .mode { font:12px ui-monospace,monospace; background:#edf3ed; padding:.2rem .45rem; border-radius:5px; }
+    #error { color:#a42531; }
+  </style>
+</head>
+<body>
+  <div class="eyebrow">Read-only registry</div><h1>agentPlugins</h1>
+  <p>Published capability badges and their effective tool grants.</p>
+  <main id="plugins">Loading…</main><p id="error"></p>
+  <script>
+    const api = window.localStorage.getItem('governanceApi') || 'http://localhost:8787';
+    const escapeHtml = value => String(value).replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+    fetch(`${api}/plugins`).then(response => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.json();
+    }).then(plugins => {
+      document.querySelector('#plugins').innerHTML = plugins.map(plugin => `<article class="plugin">
+        <h2>${escapeHtml(plugin.id)} <small>v${escapeHtml(plugin.version)}</small></h2><div class="badge">${escapeHtml(plugin.badge)}</div>
+        <table><thead><tr><th>Tool</th><th>Mode</th></tr></thead><tbody>${plugin.grants.map(grant => `<tr><td>${escapeHtml(grant.tool)}</td><td><span class="mode">${escapeHtml(grant.mode)}</span></td></tr>`).join('')}</tbody></table>
+      </article>`).join('') || 'No plugins registered.';
+    }).catch(error => { document.querySelector('#plugins').textContent = ''; document.querySelector('#error').textContent = `Could not reach ${api}: ${error.message}`; });
+  </script>
+</body>
+</html>

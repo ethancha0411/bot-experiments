@@ -1,0 +1,8 @@
+{
+  "slice": 3,
+  "extends": 2,
+  "claims": ["origin mediation", "computer watch-only", "function-only mutation"],
+  "perClickAuthorization": "unproven",
+  "shell": "off",
+  "secretsIncluded": false
+}

@@ -1,0 +1,16 @@
+{
+  "name": "bot-experiments",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.5.1",
+  "scripts": {
+    "dev": "pnpm --filter governance-server dev",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "test": "pnpm -r --if-present test",
+    "example:hosted": "python3 examples/agents-api-hosted/run.py",
+    "example:simon": "node examples/simon-four-deny/mechanical-deny.mjs",
+    "example:thin": "node examples/thin-second-harness/run-proof.mjs",
+    "example:skill": "node examples/skill-integrity/run-proof.mjs"
+  }
+}
