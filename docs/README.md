@@ -13,6 +13,7 @@ and internal deployment framing have been removed.
    - [Glossary](glossary.md)
 3. **Approach** — bounded integration and gateway seams
    - [Agents SDK computer-use scope](approach/poc-agents-sdk-computer-use-scope.md)
+   - [AWS control-plane scope](approach/poc-aws-control-plane-scope.md)
    - [Gateway patterns](approach/gateway-patterns.md)
    - [Gateway issue notes](approach/gateway-issue-notes.md)
 4. **Experiments** — slices and deterministic extracts
